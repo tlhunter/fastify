@@ -49,6 +49,22 @@ test('findRoute should return an immutable route to avoid leaking and runtime ro
   t.same(route.params, { artistId: ':artistId' })
 })
 
+test('findRoute should return null when when url is not passed', t => {
+  t.plan(1)
+  const fastify = Fastify()
+
+  fastify.get('/artists/:artistId', {
+    schema: {
+      params: { artistId: { type: 'integer' } }
+    },
+    handler: (req, reply) => reply.send(typeof req.params.artistId)
+  })
+
+  t.equal(fastify.findRoute({
+    method: 'POST'
+  }), null)
+})
+
 test('findRoute should return null when route cannot be found due to a different path', t => {
   t.plan(1)
   const fastify = Fastify()
@@ -67,7 +83,7 @@ test('findRoute should return null when route cannot be found due to a different
 })
 
 test('findRoute should return the route when found', t => {
-  t.plan(2)
+  t.plan(1)
   const fastify = Fastify()
 
   const handler = (req, reply) => reply.send(typeof req.params.artistId)
@@ -85,7 +101,6 @@ test('findRoute should return the route when found', t => {
   })
 
   t.same(route.params, { artistId: ':artistId' })
-  t.same(route.store.schema, { params: { artistId: { type: 'integer' } } })
 })
 
 test('findRoute should work correctly when used within plugins', t => {
@@ -115,4 +130,22 @@ test('findRoute should work correctly when used within plugins', t => {
   fastify.ready(() => {
     t.equal(fastify.validateRoutes.validateParams(), true)
   })
+})
+
+test('findRoute should not expose store', t => {
+  t.plan(1)
+  const fastify = Fastify()
+
+  fastify.get('/artists/:artistId', {
+    schema: {
+      params: { artistId: { type: 'integer' } }
+    },
+    handler: (req, reply) => reply.send(typeof req.params.artistId)
+  })
+
+  const route = fastify.findRoute({
+    method: 'GET',
+    url: '/artists/:artistId'
+  })
+  t.equal(route.store, undefined)
 })

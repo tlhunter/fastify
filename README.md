@@ -29,6 +29,7 @@ downloads](https://img.shields.io/npm/dm/fastify.svg?style=flat)](https://www.np
 Disclosure](https://img.shields.io/badge/Security-Responsible%20Disclosure-yellow.svg)](https://github.com/fastify/fastify/blob/main/SECURITY.md)
 [![Discord](https://img.shields.io/discord/725613461949906985)](https://discord.gg/fastify)
 [![Contribute with Gitpod](https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod&color=blue)](https://gitpod.io/#https://github.com/fastify/fastify)
+![Open Collective backers and sponsors](https://img.shields.io/opencollective/all/fastify)
 
 </div>
 
@@ -45,10 +46,8 @@ developer experience with the least overhead and a powerful plugin architecture.
 It is inspired by Hapi and Express and as far as we know, it is one of the
 fastest web frameworks in town.
 
-The `main` branch refers to the Fastify `v4` release. Check out the
-[`v3.x` branch](https://github.com/fastify/fastify/tree/3.x) for `v3`.
-
-
+The `main` branch refers to the Fastify `v5` release, which is not released/LTS yet.
+Check out the [`4.x` branch](https://github.com/fastify/fastify/tree/4.x) for `v4`.
 
 ### Table of Contents
 
@@ -124,6 +123,7 @@ yarn add fastify
 
 // ESM
 import Fastify from 'fastify'
+
 const fastify = Fastify({
   logger: true
 })
@@ -149,6 +149,7 @@ with async-await:
 ```js
 // ESM
 import Fastify from 'fastify'
+
 const fastify = Fastify({
   logger: true
 })
@@ -170,15 +171,6 @@ fastify.listen({ port: 3000 }, (err, address) => {
 
 Do you want to know more? Head to the <a
 href="./docs/Guides/Getting-Started.md"><code><b>Getting Started</b></code></a>.
-
-
-### Fastify v1.x and v2.x
-
-Code for Fastify's **v1.x** is in [**`branch
-1.x`**](https://github.com/fastify/fastify/tree/1.x), so all Fastify 1.x related
-changes should be based on **`branch 1.x`**. In a similar way, all Fastify
-**v2.x** related changes should be based on [**`branch
-2.x`**](https://github.com/fastify/fastify/tree/2.x).
 
 > ## Note
 > `.listen` binds to the local host, `localhost`, interface by default
@@ -275,6 +267,12 @@ application, you should __always__ benchmark if performance matters to you.
 Please visit [Fastify help](https://github.com/fastify/help) to view prior
 support issues and to ask new support questions.
 
+## Contributing
+
+Whether reporting bugs, discussing improvements and new ideas or writing code,
+we welcome contributions from anyone and everyone. Please read the [CONTRIBUTING](./CONTRIBUTING.md)
+guidelines before submitting pull requests.
+
 ## Team
 
 _Fastify_ is the result of the work of a great community. Team members are
@@ -325,6 +323,8 @@ listed in alphabetical order.
   <https://twitter.com/jsumners79>, <https://www.npmjs.com/~jsumners>
 * [__Aras Abbasi__](https://github.com/uzlopak),
   <https://www.npmjs.com/~uzlopak>
+* [__Gürgün Dayıoğlu__](https://github.com/gurgunday),
+  <https://www.npmjs.com/~gurgunday>
 
 ### Fastify Plugins team
 * [__Matteo Collina__](https://github.com/mcollina),
@@ -382,6 +382,12 @@ width="250px;"/>](https://openjsf.org/projects)
 We are a [At-Large
 Project](https://github.com/openjs-foundation/cross-project-council/blob/HEAD/PROJECT_PROGRESSION.md#at-large-projects)
 in the [OpenJS Foundation](https://openjsf.org/).
+
+## Sponsors
+
+Support this project by becoming a [SPONSOR](./SPONSORS.md)!
+Fastify has an [Open Collective](https://opencollective.com/fastify)
+page where we accept and manage financial contributions.
 
 ## Acknowledgements
 
